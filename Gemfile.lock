@@ -7,7 +7,7 @@ PATH
       json (~> 2.1)
 
 GEM
-  remote: https://gems.covermymeds.com/
+  remote: https://rubygems.org/
   specs:
     amq-protocol (2.2.0)
     bunny (2.7.2)
@@ -47,4 +47,4 @@ DEPENDENCIES
   test_driven_lighting!
 
 BUNDLED WITH
-   1.14.3
+   1.15.4

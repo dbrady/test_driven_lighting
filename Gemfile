@@ -1,2 +1,2 @@
-source 'https://gems.covermymeds.com'
+source 'https://rubygems.org'
 gemspec
