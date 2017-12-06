@@ -13,7 +13,7 @@ class MessageDispatcher
 
   def dispatch(outgoing_message)
     klass = class_for outgoing_message.fetch("message_type")
-    klass.new.dispatch outgoing_message
+    klass.new(outgoing_message).dispatch
   end
 
   def class_for(class_name)
