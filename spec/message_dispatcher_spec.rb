@@ -1,3 +1,4 @@
+require 'spec_helper'
 require_relative '../lib/test_driven_lighting/message_dispatcher'
 require_relative '../lib/test_driven_lighting/messages/log_message'
 
