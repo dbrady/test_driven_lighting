@@ -39,3 +39,8 @@ Metrics/ParameterLists:
 # Because RuboCop is just plain WRONG about this, ESPECIALLY for multiline ifs
 Style/NegatedIf:
   Enabled: false
+
+# Normally I favor requiring these but hey, this ain't CoffeeScript and half the
+# hackathon team likes Seattle.rb style. Let's do it.
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
