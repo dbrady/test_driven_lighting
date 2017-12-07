@@ -1,21 +1,16 @@
-require_relative '../config'
+require 'yaml'
+config = YAML::load_file(File.expand_path('~/.test_driven_lighting.conf'))
 require_relative '../lib/test_driven_lighting'
 include TestDrivenLighting
 
 hue_config = {
-  hue_ip:  HUE_IP,
-  hue_api_id:  HUE_API_ID
-}
-
-bunny_config = {
-  bunny_username:  BUNNY_USERNAME,
-  bunny_password:  BUNNY_PASSWORD,
-  bunny_host:  BUNNY_HOST
+  hue_ip:  config[:hue_ip],
+  hue_api_id:  config[:hue_api_id]
 }
 
 hue      = Hue.new hue_config
-lamp     = Lamp.new MY_LAMP_ID
-receiver = Receiver.new bunny_config
+lamp     = Lamp.new config[:my_lamp_id]
+receiver = Receiver.new config[:bunny]
 
 receiver.listen(`whoami`) do |payload|
   puts "Receiving message with #{payload}"
