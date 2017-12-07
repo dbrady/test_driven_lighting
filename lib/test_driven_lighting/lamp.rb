@@ -1,5 +1,3 @@
-
-
 class Lamp
   attr_accessor :id,:hue,:saturation,:brightness,:is_on, :transition_time
 
@@ -14,9 +12,9 @@ class Lamp
 
   def color= color
     @hue = case color
-      when 'green' then 25000
-      when 'red'   then 0
-      else raise "unknown color #{color}"
-    end
+           when 'green' then 25000
+           when 'red'   then 0
+           else raise "unknown color #{color}"
+           end
   end
 end

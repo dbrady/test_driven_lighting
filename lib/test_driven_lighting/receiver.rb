@@ -20,5 +20,3 @@ class Receiver
     end
   end
 end
-
-
