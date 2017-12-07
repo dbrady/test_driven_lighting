@@ -10,6 +10,12 @@ class LogMessage < Message
 
   def process
     content = message.fetch 'content'
-    puts content
+    puts "%s %s" % [timestamp, content]
+  end
+
+  private
+
+  def timestamp
+    Time.new.strftime "%F %T"
   end
 end
