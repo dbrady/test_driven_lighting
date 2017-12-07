@@ -9,6 +9,7 @@ describe 'tests' do
 
   it 'has a pending test' do
     pending
+    expect(true).to eq false
   end
 end
 

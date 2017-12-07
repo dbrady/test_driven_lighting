@@ -24,12 +24,14 @@ class LightingFormatter
   end
 
   def example_pending test_data
-    example_failed test_data
+    @sender.message_send 'pending', 'test'
   end
 
   def dump_summary summary
-    if failed_or_pending? summary
+    if summary.failed_examples.any?
       @sender.message_send 'fail','suite'
+    elsif summary.pending_examples.any?
+      @sender.message_send 'pending', 'suite'
     else
       @sender.message_send 'pass','suite'
     end
@@ -39,9 +41,4 @@ class LightingFormatter
     @sender.close_connection
   end
 
-  private
-
-  def failed_or_pending? summary
-    summary.failed_examples.any? || summary.pending_examples.any?
-  end
 end
