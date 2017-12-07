@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# tdl-pairing-start - start listening for lighting messages, and change HUE
+# lights when you or your pair run your specs
+#
+# Your config file should be at .test_driven_lighting.conf
+#
+# tdl-pairing-start
+
+require 'yaml'
+config = YAML::load_file File.expand_path('~/.test_driven_lighting.conf')
+
+require 'test_driven_lighting'
+include TestDrivenLighting
+
+require 'pp'
+puts '-' * 80
+pp config
+puts '-' * 80
+
+hue_config = {
+  hue_ip:  config[:hue_ip],
+  hue_api_id:  config[:hue_api_id]
+}
+
+hue      = Hue.new hue_config
+lamp     = Lamp.new config[:my_lamp_id]
+receiver = Receiver.new config[:bunny]
+
+receiver.listen(`whoami`) do |payload|
+  puts "Receiving message with #{payload}"
+
+  case payload['status']
+  when 'fail'
+    lamp.color = 'red'
+  when 'pass'
+    lamp.color = 'green'
+  end
+
+  hue.change! lamp
+end
