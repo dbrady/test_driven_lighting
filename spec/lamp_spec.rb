@@ -8,7 +8,8 @@ describe Lamp do
   attributes.each do |attribute|
     it "has a settable '#{attribute}' attribute'" do
       expect(lamp).to respond_to attribute
-      expect(lamp.send("#{attribute}=",123)).to eq lamp.send(attribute)
+      lamp.send("#{attribute}=",123)
+      expect(lamp.send(attribute)).to eq 123
     end
   end
 
