@@ -3,3 +3,4 @@
 config.rb
 .rfg_project_name
 coverage
+test_driven_lighting-*.gem
