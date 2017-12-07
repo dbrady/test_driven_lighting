@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/test_driven_lighting/message_dispatcher'
+require 'message_dispatcher'
 
 describe MessageDispatcher do
   let(:message) { { 'message_type' => 'fake_message' } }
