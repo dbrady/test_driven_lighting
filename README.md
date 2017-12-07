@@ -1,4 +1,20 @@
 # Test Driven Lighting
+Red / Green / _Refractor!_ Share and control HUE lights with your remote pairing
+partner as you run your tests.
+
+![green_light](https://user-images.githubusercontent.com/28605/33732386-59b4cf22-db54-11e7-988a-a96e1803288c.jpg)
+
+Philips HUE lights can be controlled over wifi. It's pretty trivial to make your
+test suite change your lights to be red or green (or blue or yellow or anything)
+...as long as you controlling your own lights over your own wifi.
+
+![red_light](https://user-images.githubusercontent.com/28605/33732389-5b28ee9c-db54-11e7-8edf-32114e5cdd73.jpg)
+
+But what if you are remote pairing, and you run your tests on your partner's
+machine? Wouldn't you want your lights to still update?
+
+What if you _both_ had HUE lights for watching your tests run?
+
 hue bulb test driven lighting
 
 Running Tests:
@@ -58,3 +74,14 @@ sender.message_send("pass","test")
 sender.message_send("fail","suite")
 sender.close_connection
 ```
+
+# Database
+
+Test Driven Lighting does not require any database, but of course we recommend
+using a SQL Light database.
+
+![sqlite_database](https://user-images.githubusercontent.com/28605/33732394-5e9ded84-db54-11e7-8851-a3bb214baba5.jpg)
+
+Just make sure it's the right color. [I hear mauve has the most RAM.](http://dilbert.com/strip/1995-11-17)
+
+![See? More RAM.](https://user-images.githubusercontent.com/28605/33732397-60ef1e28-db54-11e7-8abd-8efe5a9f093c.jpg)
