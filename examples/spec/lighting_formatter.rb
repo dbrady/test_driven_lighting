@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../../../config'
-require_relative '../../test_driven_lighting'
+require_relative '../../config'
+require_relative '../../lib/test_driven_lighting'
 
 class LightingFormatter
   RSpec::Core::Formatters.register self,

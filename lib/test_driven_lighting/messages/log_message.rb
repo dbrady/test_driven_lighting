@@ -1,4 +1,3 @@
-require 'spec_helper'
 require_relative 'message'
 
 # LogMessage - prints a message to the log (currently just whatever screen is

@@ -1,5 +1,5 @@
-require_relative '../../../config'
-require_relative '../../test_driven_lighting'
+require_relative '../config'
+require_relative '../lib/test_driven_lighting'
 include TestDrivenLighting
 
 hue_config = {
