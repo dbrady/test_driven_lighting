@@ -1,30 +1,29 @@
 require 'spec_helper'
 require_relative '../lib/test_driven_lighting/message_dispatcher'
-require_relative '../lib/test_driven_lighting/messages/log_message'
 
-# This needs a good/better name. This class peeks at message_type in a block of
-# JSON and then factories up a message class of the same type.
-
-# request-level spec -- scope is the application (we can talk to other classes,
-# but only inside our application)
 describe MessageDispatcher do
-  let(:message) do
-    {
-      'message_type' => 'log_message',
-      'content' => 'This is a log message'
-    }
-  end
+  let(:message) { { 'message_type' => 'fake_message' } }
+  let(:message_handler) { double 'MessageHandler' }
+  let(:message_class_double) { double 'MessageClass' }
 
-  it 'writes message content to stdout' do
-    subject.register_message_class 'log_message', LogMessage
-    expect($stdout).to receive(:puts).with(/This is a log message/)
-    subject.dispatch message
-  end
+  describe '#dispatch' do
+    let(:fake_message_instance) { double 'FakeMessage' }
+    let(:fake_message_class) { double 'FakeMessageClass' }
 
-  describe '#class_for' do
-    it 'returns the registered class for that name' do
-      subject.register_message_class 'log_message', LogMessage
-      expect(subject.class_for('log_message')).to be LogMessage
+    before do
+      subject.register_message_class 'fake_message', fake_message_class
+    end
+
+    it 'finds the registered handler and asks it to process the message' do
+      expect(fake_message_class)
+        .to receive(:new)
+             .with(message)
+             .and_return fake_message_instance
+
+      expect(fake_message_instance)
+        .to receive(:process)
+
+      subject.dispatch(message)
     end
   end
 end
