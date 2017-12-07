@@ -31,10 +31,12 @@ receiver = Receiver.new(bunny_config)
 receiver.listen(`whoami`) do |payload|
     puts "setting bulbs using #{payload}..."
     case payload['status']
-      when 'fail'
-        lamp.color = 'red'
-      when 'pass'
-        lamp.color = 'green'
+    when 'fail'
+      lamp.color = 'red'
+    when 'pending'
+      lamp.color = 'yellow'
+    when 'pass'
+      lamp.color = 'green'
     end
     hue.change!(lamp)
 end
