@@ -8,7 +8,7 @@ class LogMessage < Message
     super
   end
 
-  def dispatch
+  def process
     content = message.fetch 'content'
     puts content
   end
