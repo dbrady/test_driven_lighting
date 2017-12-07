@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../../config'
+require 'yaml'
 require_relative '../../lib/test_driven_lighting'
 
 class LightingFormatter
@@ -11,13 +11,8 @@ class LightingFormatter
                                    :close
 
   def initialize data
-    bunny_config = {
-        :bunny_username => BUNNY_USERNAME,
-        :bunny_password => BUNNY_PASSWORD,
-        :bunny_host => BUNNY_HOST
-    }
-
-    @sender = Sender.new bunny_config
+    config = YAML::load_file(File.expand_path('~/.test_driven_lighting.conf'))
+    @sender = Sender.new config[:bunny]
   end
 
   def example_passed test_data
