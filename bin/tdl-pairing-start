@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# tdl-pairing-start - start listening for lighting messages, and change HUE
+# lights when you or your pair run your specs
+
+# tdl-pairing-start
+
+config_file = File.expand_path '~/.test_driven_lighting.conf'
+
+require config_file
