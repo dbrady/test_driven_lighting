@@ -1,7 +1,21 @@
+#!/usr/bin/env ruby
+# tdl-pairing-start - start listening for lighting messages, and change HUE
+# lights when you or your pair run your specs
+#
+# Your config file should be at .test_driven_lighting.conf
+#
+# tdl-pairing-start
+
 require 'yaml'
-config = YAML::load_file(File.expand_path('~/.test_driven_lighting.conf'))
-require_relative '../lib/test_driven_lighting'
+config = YAML::load_file File.expand_path('~/.test_driven_lighting.conf')
+
+require 'test_driven_lighting'
 include TestDrivenLighting
+
+require 'pp'
+puts '-' * 80
+pp config
+puts '-' * 80
 
 hue_config = {
   hue_ip:  config[:hue_ip],
