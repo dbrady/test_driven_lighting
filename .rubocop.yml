@@ -16,9 +16,10 @@ Metrics/ModuleLength:
   Enabled: true
   Max: 100
 
-Metrics/MethodLength:
+Metrics/LineLength:
   Enabled: true
-  Max: 5
+  Exclude:
+    - '*.gemspec'
 
 # This is already the default in 0.51.0 but I want to state it explicitly
 Metrics/ParameterLists:
