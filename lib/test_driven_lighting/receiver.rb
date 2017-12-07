@@ -12,11 +12,8 @@ class Receiver
 
   def listen(queue_name, &block)
     puts 'listening for light messages...'
-    @channel.queue(queue_name, :auto_delete => true).bind(@exchange).subscribe do |delivery_info, metadata, payload|
+    @channel.queue(queue_name, :auto_delete => true).bind(@exchange).subscribe(:block => true) do |delivery_info, metadata, payload|
       yield JSON.parse(payload)
-    end
-    while true
-      sleep 10
     end
   end
 end
