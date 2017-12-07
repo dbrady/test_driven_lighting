@@ -5,3 +5,6 @@
 #  BUNNY_URSERNAME='guest'
 #  BUNNY_PASSWORD='guest'
 #  BUNNY_HOST='localhost:5672'
+
+# # This is basically just for the hackathon
+# MY_LAMP_ID=3

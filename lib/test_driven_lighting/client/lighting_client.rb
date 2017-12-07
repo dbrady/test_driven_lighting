@@ -14,7 +14,7 @@ bunny_config = {
 }
 
 hue      = Hue.new hue_config
-lamp1    = Lamp.new 1
+lamp     = Lamp.new MY_LAMP_ID
 receiver = Receiver.new bunny_config
 
 receiver.listen(`whoami`) do |payload|
@@ -22,10 +22,10 @@ receiver.listen(`whoami`) do |payload|
 
   case payload['status']
   when 'fail'
-    lamp1.color = 'red'
+    lamp.color = 'red'
   when 'pass'
-    lamp1.color = 'green'
+    lamp.color = 'green'
   end
 
-  hue.change! lamp1
+  hue.change! lamp
 end
