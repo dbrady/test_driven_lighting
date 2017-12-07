@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    test_driven_lighting (1.0.2)
+    test_driven_lighting (1.1.0)
       bunny (~> 2.7)
       faraday (~> 0.12.2)
       json (~> 2.1)
