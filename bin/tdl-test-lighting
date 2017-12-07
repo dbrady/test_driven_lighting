@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# tdl-test-lights - do a test of the lighting
+require 'yaml'
+require 'test_driven_lighting'
+include TestDrivenLighting
+
+puts "Sending test messages to your lights..."
+puts "Loading config..."
+config = YAML::load_file(File.expand_path('~/.test_driven_lighting.conf'))
+bunny_config = config[:bunny]
+
+puts "Connecting to message queue..."
+sender = Sender.new bunny_config
+
+puts "Sending fail message..."
+sender.message_send "fail", "test"
+sleep 0.5
+
+puts "Sending warning message..."
+sender.message_send "warn", "test"
+sleep 0.5
+
+puts "Sending suite pass message..."
+sender.message_send "pass", "suite"
+
+puts "All done!"
