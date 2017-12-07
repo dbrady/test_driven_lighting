@@ -4,23 +4,24 @@ require 'yaml'
 require 'test_driven_lighting'
 include TestDrivenLighting
 
-puts "Sending test messages to your lights..."
-puts "Loading config..."
+puts 'Sending test messages to your lights...'
+puts 'Loading config...'
 config = YAML::load_file(File.expand_path('~/.test_driven_lighting.conf'))
 bunny_config = config[:bunny]
 
-puts "Connecting to message queue..."
+puts 'Connecting to message queue...'
 sender = Sender.new bunny_config
 
-puts "Sending test failed message..."
-sender.message_send "fail", "test"
-sleep 0.5
-
-puts "Sending test pending message..."
-sender.message_send "pending", "test"
-sleep 0.5
-
-puts "Sending suite passed message..."
-sender.message_send "pass", "suite"
+[
+  ['suite', 'run'],
+  ['test', 'fail'],
+  ['test', 'pending'],
+  ['test', 'pass'],
+  ['suite', 'pass']
+].each do |type, status|
+  puts "Sending #{type} #{status} message..."
+  sender.message_send status, type
+  sleep 0.5
+end
 
 puts "All done!"

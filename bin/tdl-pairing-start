@@ -30,6 +30,8 @@ receiver.listen(`whoami`) do |payload|
   puts "Receiving message with #{payload}"
 
   case payload['status']
+  when 'run'
+    lamp.color = 'blue'
   when 'fail'
     lamp.color = 'red'
   when 'pending'
