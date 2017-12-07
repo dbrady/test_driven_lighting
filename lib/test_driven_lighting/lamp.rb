@@ -1,5 +1,10 @@
+require 'yaml'
+
 class Lamp
-  attr_accessor :id,:hue,:saturation,:brightness,:is_on, :transition_time
+  attr_accessor :id,:hue,:saturation,:brightness,:is_on, :transition_time, :colors
+
+  DEFAULT_COLORS_FILE = "#{File.expand_path(File.dirname(__FILE__))}/data/default_colors.yml"
+  DEFAULT_COLORS = YAML.load_file(DEFAULT_COLORS_FILE)['colors']
 
   def initialize(lamp_id)
     @is_on = true
@@ -8,13 +13,13 @@ class Lamp
     @saturation = 254
     @brightness = 10
     @transition_time = 0
+    @colors = DEFAULT_COLORS
   end
 
   def color= color
-    @hue = case color
-           when 'green' then 25000
-           when 'red'   then 0
-           else raise "unknown color #{color}"
-           end
+    raise "unknown color of #{color}" if @colors[color].nil?
+
+    @hue = @colors[color]['hue']
+    @saturation = @colors[color]['saturation']
   end
 end

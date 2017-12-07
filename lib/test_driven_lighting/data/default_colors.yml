@@ -1,0 +1,28 @@
+colors:
+  red:
+    hue: 0
+    saturation: 254
+  orange:
+    hue: 5000
+    saturation: 254
+  yellow:
+    hue: 10000
+    saturation: 254
+  green:
+    hue: 25000
+    saturation: 254
+  teal:
+    hue: 35000
+    saturation: 254
+  blue:
+    hue: 44000
+    saturation: 254
+  purple:
+    hue: 49000
+    saturation: 254
+  mauve:
+    hue: 52000
+    saturation: 150
+  pink:
+    hue: 55000
+    saturation: 254
