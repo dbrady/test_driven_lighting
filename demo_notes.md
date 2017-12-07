@@ -87,7 +87,7 @@
      up some disk space there, Brian?
   1. Brian fiddles with a thing and the line drops off.
   1. Brian's light fades back to green and then turns off.
-1. Jenkins
+1. [Jenkins](https://ci.cmmint.net/view/Testing%20Tools/job/test_driven_lighting/job/send_lighting_message/)
   1. Presenter plus DJ.
   1. This is DJ. He wants to deploy some code, but our deploy process has gotten
      more and more cumbersome and asynchronous over time. He's got a PR waiting
