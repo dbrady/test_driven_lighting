@@ -2,13 +2,13 @@
 Red / Green / _Refractor!_ Share and control HUE lights with your remote pairing
 partner as you run your tests.
 
-![green_light](https://user-images.githubusercontent.com/28605/33732386-59b4cf22-db54-11e7-988a-a96e1803288c.jpg)
+![green_light](https://user-images.githubusercontent.com/28605/33732794-8fb979e6-db55-11e7-9228-adb195e2aac3.jpg)
 
 Philips HUE lights can be controlled over wifi. It's pretty trivial to make your
 test suite change your lights to be red or green (or blue or yellow or anything)
 ...as long as you controlling your own lights over your own wifi.
 
-![red_light](https://user-images.githubusercontent.com/28605/33732389-5b28ee9c-db54-11e7-8edf-32114e5cdd73.jpg)
+![red_light](https://user-images.githubusercontent.com/28605/33732797-91ecf72e-db55-11e7-83af-088091ef926e.jpg)
 
 But what if you are remote pairing, and you run your tests on your partner's
 machine? Wouldn't you want your lights to still update?
