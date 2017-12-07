@@ -1,0 +1,41 @@
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Metrics/ClassLength:
+  Enabled: true
+  Max: 100
+
+Metrics/ModuleLength:
+  Enabled: true
+  Max: 100
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 5
+
+# This is already the default in 0.51.0 but I want to state it explicitly
+Metrics/ParameterLists:
+  Enabled: true
+  Max: 5
+
+# Because Boards have forced indentation and I'm not using heredocs as
+# documentation
+# Layout/IndentHeredoc:
+#   Enabled: false
+
+
+# I only ever use parallel assignment in constructors, but I ALWAYS use them in
+# constructors. I wish I could change the cop to allow it only in constructors
+# Style/ParallelAssignment:
+#   Enabled: false
+
+# Because RuboCop is just plain WRONG about this, ESPECIALLY for multiline ifs
+Style/NegatedIf:
+  Enabled: false
