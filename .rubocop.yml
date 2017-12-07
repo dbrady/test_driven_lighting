@@ -44,3 +44,10 @@ Style/NegatedIf:
 # hackathon team likes Seattle.rb style. Let's do it.
 Style/MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
+
+
+# I sort of agree and sort of don't with this one, but the important thing is
+# emacs completely disagrees with it and there's certain things you just can't
+# talk to emacs about without it getting all crazy
+Layout/MultilineMethodCallIndentation:
+  Enabled: false

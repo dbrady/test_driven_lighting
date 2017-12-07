@@ -7,6 +7,6 @@ $LOAD_PATH.unshift TDL_PATH
 if ENV['COVERAGE']
   require 'simplecov'
   SimpleCov.start do
-    add_filter "/spec/"
+    add_filter '/spec/'
   end
 end
