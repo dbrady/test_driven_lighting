@@ -11,7 +11,7 @@ class Lamp
     @id = lamp_id
     @hue = 0
     @saturation = 254
-    @brightness = 10
+    @brightness = 254
     @transition_time = 0
     @colors = DEFAULT_COLORS
   end
