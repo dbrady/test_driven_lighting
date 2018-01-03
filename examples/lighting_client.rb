@@ -20,6 +20,8 @@ receiver.listen(`whoami`) do |payload|
     lamp.color = 'red'
   when 'pass'
     lamp.color = 'green'
+  when 'pending'
+    lamp.color = 'yellow'
   end
 
   hue.change! lamp
